@@ -6,7 +6,7 @@ if [[ $* == *"-h"* ]] || [[ $* == *"--help"* ]]; then
 	help_present=1
 fi
 if [[ $help_present == 1 ]]; then
-	echo "Usage: $0 [options] {query file name (e.g. query.fasta)}"
+	echo "Usage: $0 {query file name (e.g. query.fasta)} [options] "
 	echo
 	echo "   -n                    number of cores available to use (default=1)"
 	echo "   -m                    GB of RAM available for use (default=16)"
