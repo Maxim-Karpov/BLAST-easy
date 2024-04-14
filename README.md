@@ -1,19 +1,20 @@
+<ins>**Overview**</ins>
 BLAST-easy is a collection of Bash scripts which allows for easy installation of the local NCBI full nucleotide (nt) database and conduction of multithreaded, memory-aware BLASTn searches with lower RAM requirements. Currently (14/04/24), the full NCBI nt database requires around 450 GB of disk space when unpacked, thus requiring just as much RAM to run via conventional means. BLAST-easy sets up the nt database and runs a BLAST search in such a way that the database is cached based on user-specified thread and RAM requirements, permitting the BLASTing of the entire NCBI nt database with only 1 core and 16 GB of RAM at user's disposal. The utility of BLAST-easy will increase with time due to the exponential growth of the sequence data on the NCBI database.
 <br/>
 <br/>
-**Requirements (14/04/24 - will increase with the future growth of the database)**
+<ins>**Requirements (14/04/24 - will increase with the future growth of the database)**</ins>
 - 1 core
 - 16 GB RAM
 - 900 GB disk space (~500 GB post-installation; SSD or NVMI storage devices are highly recommended)
 <br/>
-**Database installation instructions**<br/>
+<ins>**Database installation instructions**</ins><br/>
 To set up the NCBI nt database, the scripts should be executed inside your local working BLAST search directory in the following order:
   1) download_db.sh - downloads the compressed NCBI nt database by parts.
   2) extract_db.sh - extracts each volume of the downloaded NCBI nt database.
   3) add_metadata_files.sh - adds necessary metadata to each extracted volume of the database for multithreading purposes and significantly lower RAM requirements.
 <br/>
 <br/>
-**BLAST search instructions**<br/>
+<ins>**BLAST search instructions**</ins><br/>
 Run the script BLAST_search.sh in your BLAST-easy directory with a given query FASTA file of choice (e.g. Example_BLAST_query.fasta) in the same directory:
 
 ```
@@ -41,7 +42,7 @@ Further usage: BLAST_search.sh [options] {query file name (e.g. query.fasta)}
    -h, --help            print description of command line arguments
 ```
 <br/>
-**Future work**<br/>
+<ins>**Future work**</ins><br/>
   1) Ability to use nr database.
   2) Single-script installation of the database of choice.
   3) Ability to run other types of BLAST searches.
