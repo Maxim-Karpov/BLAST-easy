@@ -1,4 +1,4 @@
-<ins>**Overview**</ins>
+<ins>**Overview**</ins><br/>
 BLAST-easy is a collection of Bash scripts which allows for easy installation of the local NCBI full nucleotide (nt) database and conduction of multithreaded, memory-aware BLASTn searches with lower RAM requirements. Currently (14/04/24), the full NCBI nt database requires around 450 GB of disk space when unpacked, thus requiring just as much RAM to run via conventional means. BLAST-easy sets up the nt database and runs a BLAST search in such a way that the database is cached based on user-specified thread and RAM requirements, permitting the BLASTing of the entire NCBI nt database with only 1 core and 16 GB of RAM at user's disposal. The utility of BLAST-easy will increase with time due to the exponential growth of the sequence data on the NCBI database.
 <br/>
 <br/>
