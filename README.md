@@ -23,6 +23,7 @@ BLAST_search.sh Example_BLAST_query.fasta
 Without additional user input, the program will launch a single BLASTn thread, consuming a single CPU core and under 16 GB of RAM at a time. If higher core and RAM availability is specified, the program will calculate the permissive number of BLASTn threads to run automatically. The number of threads is a slight underestimation of the number of BLASTn processes you may feasibly run, the closer your specifications are to 16 GB of RAM, the more accurate the program's estimation is. This means that at quantities of RAM you may want to specify the -m paramater to be of higher value than the quantity of RAM at your disposal if you would like to optimise the speed of the BLAST search.
 <br/>
 <br/>
+```
 Further usage: BLAST_search.sh [options] {query file name (e.g. query.fasta)}
 
    -n                    number of cores available to use (default=1)
@@ -38,7 +39,7 @@ Further usage: BLAST_search.sh [options] {query file name (e.g. query.fasta)}
    -outfmt               format of the BLAST output (default='7 qseqid sseqid length qlen slen qstart qend sstart send evalue bitscore score pident')
 
    -h, --help            print description of command line arguments
-
+```
 <br/>
 **Future work**<br/>
   1) Ability to use nr database.
