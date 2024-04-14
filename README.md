@@ -6,7 +6,6 @@ BLAST-easy is a collection of Bash scripts which allows for easy installation of
 - 16 GB RAM
 - 900 GB disk space (~500 GB post-installation; SSD or NVMI storage devices are highly recommended)
 <br/>
-<br/>
 **Database installation instructions**
 To set up the NCBI nt database, the scripts should be executed inside your local working BLAST search directory in the following order:
   1) download_db.sh - downloads the compressed NCBI nt database by parts.
@@ -17,7 +16,9 @@ To set up the NCBI nt database, the scripts should be executed inside your local
 **BLAST search instructions**
 Run the script BLAST_search.sh in your BLAST-easy directory with a given query FASTA file of choice (e.g. Example_BLAST_query.fasta) in the same directory:
 
-`BLAST_search.sh Example_BLAST_query.fasta`
+```
+BLAST_search.sh Example_BLAST_query.fasta
+```
 
 Without additional user input, the program will launch a single BLASTn thread, consuming a single CPU core and under 16 GB of RAM at a time. If higher core and RAM availability is specified, the program will calculate the permissive number of BLASTn threads to run automatically. The number of threads is a slight underestimation of the number of BLASTn processes you may feasibly run, the closer your specifications are to 16 GB of RAM, the more accurate the program's estimation is. This means that at quantities of RAM you may want to specify the -m paramater to be of higher value than the quantity of RAM at your disposal if you would like to optimise the speed of the BLAST search.
 <br/>
@@ -37,7 +38,6 @@ Further usage: BLAST_search.sh [options] {query file name (e.g. query.fasta)}
 
    -h, --help            print description of command line arguments
 
-<br/>
 <br/>
 **Future work**
   1) Ability to use nr database.
