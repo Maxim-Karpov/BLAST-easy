@@ -100,7 +100,7 @@ echo "Maximum number of processes:" $max_processes
 counter=0
 for FILE in *_dir/;
 do
-	cp $QUERY_NAME $(pwd)/$FILE/
+	ln $(pwd)/$QUERY_NAME $(pwd)/$FILE/$QUERY_NAME
 	cd $FILE
 	blastn -query $QUERY_NAME -db nt -max_target_seqs $MAX_SEQS -max_hsps $MAX_HSPS -evalue $E_VAL -outfmt "$OUTFMT" -out out_${counter}.txt -num_threads 1 &
 	counter=$((counter+1))
