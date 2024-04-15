@@ -4,7 +4,7 @@ BLAST-easy is a collection of Bash scripts which allows for easy installation of
 ## Requirements
 - 1 core
 - 16 GB RAM
-- 900 GB disk space (~500 GB post-installation, will increase with the future growth of the database; SSD or NVMI storage devices are highly recommended)
+- 900 GB disk space (~500 GB post-installation, will increase with the future growth of the database; SSD or NVMe storage devices are highly recommended)
 - BLAST+ installation and the availability of blastn binary in PATH environmental variable
 
 ## Database installation instructions
