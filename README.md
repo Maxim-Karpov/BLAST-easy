@@ -20,7 +20,7 @@ To set up the NCBI nt database, the scripts should be executed inside your local
 Run the script BLAST_search.sh in your BLAST-easy directory with a given query FASTA file of choice (e.g. Example_BLAST_query.fasta) in the same directory:
 
 ```
-BLAST_search.sh Example_BLAST_query.fasta
+bash BLAST_search.sh Example_BLAST_query.fasta
 ```
 
 Without additional user input, the program will launch a single BLASTn thread, consuming a single CPU core and under 16 GB of RAM at a time. If higher core and RAM availability is specified, the program will automatically calculate the permissive number of BLASTn threads to run. The number of threads is a slight underestimation of the number of BLASTn processes you may feasibly run, the closer your specifications are to 16 GB of RAM, the more accurate the program's estimation is. This means that, when large amounts of RAM are available, you may want to specify the -m paramater to be of a higher value than the actual quantity of RAM at your disposal if you would like to optimise the speed of the BLAST search (i.e. run more simultaneous BLASTn processes). The automatic process number assignment algorithm however will make sure that "out of memory" errors are not encountered.
