@@ -37,6 +37,10 @@ Further usage: BLAST_search.sh {query file name (e.g. query.fasta)} [options]
    -h, --help            print description of command line arguments
 ```
 
+## Considerations
+ - If you plan to move the fully prepared database volumes from one storage drive to another, you may need to remove all the previously created symlink files inside invidivual database volume directories and re-run the add_metadata_files.sh in the new directory to avoid possible Segmentation fault (core dumped) errors i.e. the nt.ndb file in the nt.000.tar.gz_dir directory must be on the same storage drive (or a drive of identical hardware characteristics may work) as the rest of the database volumes before symlinks are created via the metadata script.
+ - Cancelling the running BLAST_search.sh script (via Ctrl + C or via terminal closure) may not always shut down all of the blastn processes running in the background and you may need to check for their residuals in the process manager and shut them down manually with "pkill -f blastn" command. A more robust automated solution is a work in progress.
+
 ## Future implementations
   1) Ability to use the full NCBI nr protein sequence database.
   2) Single-script installation of the database of choice.
