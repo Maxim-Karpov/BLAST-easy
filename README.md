@@ -56,7 +56,7 @@ The benchmarks were gathered using AMD Ryzen 3rd Gen processors, DDR4 2133MHz RA
 | 10000 | - | 26 |
 | 100000 | - | 150 |
 
-There are two main stages in the BLAST process: database caching (RAM and storage drive speed bottlenecked), and the search itself (CPU speed bottlenecked). In general, increasing the number of queries places more reliance of the BLAST process on the CPU speed, hence, much better gains in performance are seen with more running BLAST processes as queries increase from 1 to 100000. Increasing the number of BLAST processes causes a speed bottleneck during the database caching process.
+There are two main stages in the BLAST process: database caching (storage drive speed bottlenecked), and the search itself (CPU speed bottlenecked). In general, increasing the number of queries places more reliance of the BLAST process on the CPU speed, hence, much better gains in performance are seen with more running BLAST processes as queries increase from 1 to 100000. Increasing the number of BLAST processes causes a speed bottleneck during the database caching process.
 
 ## Output
 - out.txt - raw concatenated output of the exectuted BLAST searches upon each database volume
