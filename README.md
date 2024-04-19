@@ -17,7 +17,7 @@ To set up the NCBI nt/nr database, the scripts should be executed inside your lo
   5) ```bash add_metadata_files.sh``` - adds necessary metadata to each extracted volume of the database for multithreading purposes and significantly lower RAM requirements.
   6) ```bash clean_up.sh``` (Optional) -  removes the compressed database volumes.
 
-## BLAST search instructions
+## BLAST-easy search instructions
 Run the script BLAST_search.sh in your BLAST-easy directory with a given query FASTA file of choice (e.g. Example_BLAST_query.fasta) in the same directory:
 
 ```
