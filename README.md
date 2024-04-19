@@ -1,5 +1,5 @@
 # Overview
-BLAST-easy is a collection of Bash scripts which allows for easy installation of the local NCBI full nucleotide (nt) and protein (nr) databases and conduction of multithreaded, memory-aware BLASTn searches with lower RAM requirements, ideal for personal computer systems, removing the need for Cloud and HPC environments. Currently (14/04/24), the full NCBI nt and nr databases take up around ~450 GB and ~570 GB of disk space when decompressed, respectively, thus requiring just as much RAM to optimally query without additional configurations. BLAST-easy sets up the nt/nr databases and runs a BLASTn/BLASTp search in a manner which allows the database to be cached based on the user-specified thread and RAM requirements, permitting the BLASTing of the entire NCBI nt database with only 1 core and 8 GB of RAM at user's disposal. The utility of BLAST-easy will only become more apparent with time due to the exponential growth of the sequence data on the NCBI database.
+BLAST-smart is a collection of Bash scripts which allows for easy installation of the local NCBI full nucleotide (nt) and protein (nr) databases and conduction of multithreaded, memory-aware BLASTn searches with lower RAM requirements, ideal for personal computer systems, removing the need for Cloud and HPC environments. Currently (14/04/24), the full NCBI nt and nr databases take up around ~450 GB and ~570 GB of disk space when decompressed, respectively, thus requiring just as much RAM to optimally query without additional configurations. BLAST-smart sets up the nt/nr databases and runs a BLASTn/BLASTp search in a manner which allows the database to be cached based on the user-specified thread and RAM requirements, permitting the BLASTing of the entire NCBI nt database with only 1 core and 8 GB of RAM at user's disposal. The utility of BLAST-smart will only become more apparent with time due to the exponential growth of the sequence data on the NCBI database.
 
 ## Minimum requirements
 - 1 core
@@ -9,16 +9,16 @@ BLAST-easy is a collection of Bash scripts which allows for easy installation of
 - BLAST+ installation and the availability of blastn/blastp binaries in PATH environmental variable
 
 ## Database installation instructions
-To set up the NCBI nt/nr database, the scripts should be executed inside your local working BLAST-easy directory:
-  1) ```git clone https://github.com/Maxim-Karpov/BLAST-easy```
-  2) ```cd ./BLAST-easy```
+To set up the NCBI nt/nr database, the scripts should be executed inside your local working BLAST-smart directory:
+  1) ```git clone https://github.com/Maxim-Karpov/BLAST-smart```
+  2) ```cd ./BLAST-smart```
   3) ```bash download_db.sh``` - downloads the compressed NCBI nt or nr database by parts.
   4) ```bash extract_db.sh``` - extracts each volume of the downloaded NCBI nt or nr database.
   5) ```bash add_metadata_files.sh``` - adds necessary metadata to each extracted volume of the database for multithreading purposes and significantly lower RAM requirements.
   6) ```bash clean_up.sh``` (Optional) -  removes the compressed database volumes.
 
-## BLAST-easy search instructions
-Run the script BLAST_search.sh in your BLAST-easy directory with a given query FASTA file of choice (e.g. Example_BLAST_query.fasta) in the same directory:
+## BLAST-smart search instructions
+Run the script BLAST_search.sh in your BLAST-smart directory with a given query FASTA file of choice (e.g. Example_BLAST_query.fasta) in the same directory:
 
 ```
 bash BLAST_search.sh Example_BLAST_query.fasta
