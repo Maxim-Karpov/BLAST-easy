@@ -37,7 +37,7 @@ Further usage: BLAST_search.sh {query file name (e.g. Example_BLAST_query.fasta)
    -e_val                Expect value (E) for saving hits [default=1e-5]
    -outfmt               format of the BLAST output [default='7 qseqid sseqid length qlen slen qstart qend sstart send evalue bitscore score pident']
    -rc                   continuously refresh cache during BLAST search (requires user privileges) [0/1] [default=0]
-   -custom               custom BLAST options (e.g. '-perc_identity 20 -gapopen 10 -gapextend 5 -html')
+   -custom               custom BLAST options (e.g. '-perc_identity 20 -gapopen 10 -gapextend 5 -html') [default=]
    -h, --help            print description of command line arguments
 ```
 
