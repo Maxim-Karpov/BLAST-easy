@@ -1,5 +1,3 @@
-echo "Which database would you like to download? (nt/nr):"
-
 read -p "Which database would you like to download? (nt/nr):" database
 
 if [[ $database == "nt" ]] || [[ $database == "nr" ]]; then
