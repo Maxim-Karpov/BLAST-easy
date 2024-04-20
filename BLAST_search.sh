@@ -6,12 +6,12 @@ if [[ $* == *"-h"* ]] || [[ $* == *"--help"* ]]; then
 	help_present=1
 fi
 if [[ $help_present == 1 ]]; then
-	echo "Usage: $0 {query file name (e.g. query.fasta)} [options] "
+	echo "Usage: $0 {query file name (e.g. Example_BLAST_query.fasta)} [options] "
 	echo
 	echo "   -n                    number of cores available to use [default=1]"
 	echo "   -m                    GB of RAM available for use [default=5]"
 	echo "   -db                   database selection (nt/nr, corresponding to blastn/blastp search, respectively) [default=nt]"
-	echo "   -max_seqs             BLAST max_seqs parameter [default=100]"
+	echo "   -max_seqs             BLAST max_seqs parameter [default=10]"
 	echo "   -max_hsps             BLAST max_hsps parameter [default=1]"
 	echo "   -e_val                Expect value (E) for saving hits [default=1e-5]"
 	echo "   -outfmt               format of the BLAST output [default='7 qseqid sseqid length qlen slen qstart qend sstart send evalue bitscore score pident']"
