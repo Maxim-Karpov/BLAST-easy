@@ -1,9 +1,9 @@
 # Overview
 BLAST-smart is a collection of Bash scripts which allows for easy installation of the local NCBI full nucleotide (nt) and protein (nr) databases and conduction of multithreaded, memory-aware BLASTn searches with lower RAM requirements, ideal for personal computer systems, removing the need for Cloud and HPC environments. Currently (14/04/24), the full NCBI nt and nr databases take up around ~450 GB and ~570 GB of disk space when decompressed, respectively, thus requiring just as much RAM to optimally query without additional configurations. BLAST-smart sets up the nt/nr databases and runs a BLASTn/BLASTp search in a manner which allows the database to be cached based on the user-specified thread and RAM requirements, permitting the BLASTing of the entire NCBI nt database with only 1 core and 8 GB of RAM at user's disposal. The utility of BLAST-smart will only become more apparent with time due to the exponential growth of the sequence data on the NCBI database.
 
-## Minimum requirements
+## Minimum requirements (14/04/24)
 - 1 core
-- 8 GB RAM
+- 5 GB RAM
 - **nt:** 700 GB disk space (~500 GB post-installation, will increase with the future growth of the database; SSD or NVMe storage devices are highly recommended)
 - **nr:** 850 GB disk space (~600 GB post-installation)
 - BLAST+ installation and the availability of blastn/blastp binaries in PATH environmental variable
@@ -24,7 +24,7 @@ Run the script BLAST_search.sh in your BLAST-smart directory with a given query 
 bash BLAST_search.sh Example_BLAST_query.fasta
 ```
 
-Without additional user input, the program will launch a single BLASTn/BLASTp thread, consuming a single CPU core and under 8 GB of RAM at a time. If higher core and RAM availability is specified, the program will automatically calculate the permissive number of BLAST threads to run. The number of threads is a slight underestimation of the number of BLAST processes you may feasibly run, the closer your specifications are to 8 GB of RAM, the more accurate the program's estimation is. This means that, when large amounts of RAM are available, you may want to specify the -m paramater to be of a higher value than the actual quantity of RAM at your disposal if you would like to optimise the speed of the BLAST search (i.e. run more simultaneous BLASTn/BLASTp processes). The automatic process number assignment algorithm is there to make sure that "out of memory" errors are not encountered.
+Without additional user input, the program will launch a single BLASTn/BLASTp thread, consuming a single CPU core and under 5 GB of RAM at a time. If higher core and RAM availability is specified, the program will automatically calculate the permissive number of BLAST processes to run. The calculated maximal number of BLAST processes is a slight underestimation of the actual number of processes you may feasibly run (at the moment you could possibly squeeze in an extra process for every 3-4 processes assigned by the program), this is primarly due to the calculation of RAM allocation. This means that, when large amounts of RAM are available, you may want to specify the -m paramater to be of a higher value than the actual quantity of RAM at your disposal if you would like to optimise the speed of the BLAST search (i.e. run more simultaneous BLASTn/BLASTp processes). Inspecting the process monitor with a RAM consumption display such as ```top``` during BLAST-smart operation at your maximal parameters may help you estimate a more accurate value for the ```-m``` parameter. The automatic process number assignment algorithm is there to ensure that "out of memory" errors are not encountered.
 
 ```
 Further usage: BLAST_search.sh {query file name (e.g. Example_BLAST_query.fasta)} [options] 
@@ -50,11 +50,12 @@ Further usage: BLAST_search.sh {query file name (e.g. Example_BLAST_query.fasta)
 The benchmarks were gathered using AMD Ryzen 3rd Gen processors, DDR4 2133MHz RAM, and an SSD storage device on a VirtualBox Ubuntu VM.
 | Number of query sequences | 1 process run time (minutes) | 20 processes run time (minutes) |
 | :---------: | :---------: | :------------: | 
-| 1 | 27  | 10 |
-| 100 | 34 | 12 |
-| 1000 | 84 | 18 |
-| 10000 | - | 26 |
-| 100000 | - | 150 |
+| 1 | 21  | 12 |
+| 10 | 28 | 13 |
+| 100 | 36 | 14 |
+| 1000 | 88 | 20 |
+| 10000 | - | 29 |
+| 100000 | - | 158 |
 
 There are two main stages in the BLAST process: database caching (storage drive speed bottlenecked), and the search itself (CPU speed bottlenecked). In general, increasing the number of queries places more reliance of the BLAST process on the CPU speed, hence, much better gains in performance are seen with more running BLAST processes as queries increase from 1 to 100000. Increasing the number of BLAST processes causes a speed bottleneck during the database caching process.
 
@@ -67,6 +68,5 @@ There are two main stages in the BLAST process: database caching (storage drive 
 ## Future implementations
   1) Single-script installation of the database of choice, with checkpoints.
   2) Ability to run other types of BLAST searches.
-  3) Improved BLAST process number estimation algorithm.
-  4) Database de-installation script.
-  5) Correction of the output to correctly match the user designated ```-max_hsps``` parameter.
+  3) Database de-installation script.
+  4) Correction of the output to correctly match the user designated ```-max_hsps``` parameter.
