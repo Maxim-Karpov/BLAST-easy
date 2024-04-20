@@ -40,9 +40,9 @@ Without additional user input, the program will launch a single BLASTn/BLASTp th
 Further usage: BLAST_search.sh {query file name (e.g. Example_BLAST_query.fasta)} [options] 
 
    -n                    number of cores available for use [default=1]
-   -m                    GB of RAM available for use [default=16]
+   -m                    GB of RAM available for use [default=5]
    -db                   database selection (nt/nr, corresponding to blastn/blastp search, respectively) [default=nt]
-   -max_seqs             BLASTn max_seqs parameter [default=100]
+   -max_seqs             BLASTn max_seqs parameter [default=10]
    -max_hsps             BLASTn max_hsps parameter [default=1]
    -e_val                Expect value (E) for saving hits [default=1e-5]
    -outfmt               format of the BLAST output [default='7 qseqid sseqid length qlen slen qstart qend sstart send evalue bitscore score pident']
