@@ -12,10 +12,20 @@ BLAST-smart is a collection of Bash scripts which allows for easy installation o
 To set up the NCBI nt/nr database, the scripts should be executed inside your local working BLAST-smart directory:
   1) ```git clone https://github.com/Maxim-Karpov/BLAST-smart```
   2) ```cd ./BLAST-smart```
+
+**Manual install**
+
   3) ```bash download_db.sh``` - downloads the compressed NCBI nt or nr database by parts.
   4) ```bash extract_db.sh``` - extracts each volume of the downloaded NCBI nt or nr database.
   5) ```bash add_metadata_files.sh``` - adds necessary metadata to each extracted volume of the database for multithreading purposes and significantly lower RAM requirements.
-  6) ```bash clean_up.sh``` (Optional) -  removes the compressed database volumes.
+
+**Automated install**
+
+  3) ```bash install_db.sh``` - downloads database, decompresses volumes, adds metadata. ```-h``` for usage information.
+
+**Clean up the directory (optional)**  
+
+```bash clean_up.sh```  -  removes the compressed database volumes.
 
 ## BLAST-smart search instructions
 Run the script BLAST_search.sh in your BLAST-smart directory with a given query FASTA file of choice (e.g. Example_BLAST_query.fasta) in the same directory:
@@ -66,7 +76,6 @@ There are two main stages in the BLAST process: database caching (storage drive 
 - out.hits_only.txt - a single header, tab-separated file containing all of the matches
 
 ## Future implementations
-  1) Single-script installation of the database of choice, with checkpoints.
-  2) Ability to run other types of BLAST searches.
-  3) Database de-installation script.
-  4) Correction of the output to correctly match the user designated ```-max_hsps``` parameter.
+  1) Ability to run other types of BLAST searches.
+  2) Database de-installation script.
+  3) Correction of the output to correctly match the user designated ```-max_hsps``` parameter.
